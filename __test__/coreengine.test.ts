@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-
+import RenderEngine from "../src/renderengine"
 import CoreEngine from "../src/coreengine";
 import { Point, IInputDevice } from "../src/iinputdevice";
 import { Component } from "../src/component";
@@ -16,10 +16,13 @@ class mockMouse implements IInputDevice {
     }
 }
 
-class mockComponent extends Component {}
+// class mockComponent extends Component {}
 // class mockEntity extends Entity {
 //     constructor(public mockComponents: Array<Component>){}
 // }
+
+// jest.mock("RenderEngine")
+// RenderEngine.render.mock
 
 const engine = new CoreEngine(myCanvas, new mockMouse());
 
@@ -31,6 +34,10 @@ test('reads input', () => {
     engine.readInput();
     expect(engine.cursorPosition).toMatchObject({x: 1, y: 1});
     expect(engine.prevCursorPosition).toMatchObject({x:0, y: 0});
+});
+
+test('renders', ()=> {
+
 });
 
 // test("pushes entity", () => {
