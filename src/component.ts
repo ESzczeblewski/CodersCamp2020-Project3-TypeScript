@@ -1,5 +1,5 @@
 import { Entity } from "./entity";
 
 export abstract class Component {
-    public entity: Entity;
+    public entity: Entity | null = null;
 }

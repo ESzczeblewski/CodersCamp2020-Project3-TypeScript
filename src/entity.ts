@@ -1,6 +1,6 @@
 import { Component } from "./component"
 
-type constr<T> = { new(...args: Array<unknown>): T }
+type constr<T> = { new(...args: Array<any>): T } //should be unknown, but then error xd
 
 export abstract class Entity {
     private static idPool = 0;

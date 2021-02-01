@@ -9,7 +9,7 @@ export default class PhysicsEngine {
 
     constructor(private readonly canvas: HTMLCanvasElement) {
 
-        this.ctx = this.canvas.getContext('2d');
+        this.ctx = this.canvas.getContext('2d')!;
         this.width = this.ctx.canvas.width;
         this.height = this.ctx.canvas.height;
     }
