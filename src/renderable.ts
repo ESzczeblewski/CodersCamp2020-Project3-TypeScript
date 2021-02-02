@@ -3,7 +3,7 @@ import { Point } from "./inputdevice.h";
 
 export class Renderable extends Component {
 
-    constructor(public position: Point, public color: string = "#000", public drawSelf = (ctx: any) => { // TODO: change any
+    constructor(public position: Point, public color: string = "#000", public drawSelf = (ctx: CanvasRenderingContext2D) => { // TODO: change any
 
         ctx.fillStyle = '#cc0000';   
         ctx.fillRect(this.position.x - 1, this.position.y - 1, 2, 2);

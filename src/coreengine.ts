@@ -52,11 +52,11 @@ export class CoreEngine {
     }
 
     private _mainLoop(callback: () => void) {
-            this._physicsEngine.updatePosition(this._entities.filter(entity => entity.hasComponent(Colidable)));
-            this._renderEngine.render(this._entities.filter(entity => entity.hasComponent(Renderable)));
-            this._readInput();
+        this._physicsEngine.updatePosition(this._entities.filter(entity => entity.hasComponent(Colidable)));
+        this._renderEngine.render(this._entities.filter(entity => entity.hasComponent(Renderable)));
+        this._readInput();
 
-            callback();
+        callback();
     }
 
     private _readInput(): void {

@@ -14,7 +14,7 @@ export class RenderEngine {
 
         for (const entity of entitiesArray) {
             try {
-                let component = entity.getComponent(Renderable);
+                const component = entity.getComponent(Renderable);
                 component.drawSelf(this._ctx); // obiekty renderują się same (po wybraniu, czym chcą być)
             } catch (err) {
                 console.error(`Could not find component of class Renderable in entity: ${entity.constructor.name}`);

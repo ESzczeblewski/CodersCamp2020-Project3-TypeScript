@@ -43,7 +43,7 @@ export abstract class Entity {
             }
         }
 
-        if(toRemove && index) {
+        if(toRemove && index > -1) {
             toRemove.entity = null;
             this._components.splice(index, 1);
         }
