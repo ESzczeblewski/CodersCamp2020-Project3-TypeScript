@@ -3,11 +3,13 @@ import { Entity } from "./entity"
 
 export class RenderEngine {
 
-    constructor(private _canvas: HTMLCanvasElement, private _ctx: CanvasRenderingContext2D) {
+    constructor(private _canvas: HTMLCanvasElement, private _ctx: CanvasRenderingContext2D | null) {
     }
 
     public render(entitiesArray: Array<Entity>): void {
-
+        if(!this._ctx) {
+            throw new Error("Canvas context is null / not found");
+        }
         this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height); // czyści canvas
 
         for (const entity of entitiesArray) {
