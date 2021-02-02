@@ -1,8 +1,6 @@
 import { Point, IInputDevice} from "./inputdevice.h"
 import { Entity } from "./entity"
 
-// type constr<T> = { new(...args: Array<unknown>): T }
-
 export class CoreEngine {
 
     private _cursorPosition: Point = {x: 0, y: 0};
@@ -28,34 +26,35 @@ export class CoreEngine {
         return this._prevCursorPosition;
     }
 
-    // public addEntity<E extends Entity>(constr: constr<E>): E {
-    //     return new constr();
-    // }
+    public addEntity(entity: Entity): Entity {
+        this._entities.push(entity);
+        return entity;
+    }
 
-    // public removeEntity(entity: Entity) {
-
-    // }
+    public removeEntity(entity: Entity) {
+        const index = this._entities.indexOf(entity);
+        if(index)
+            this._entities.splice(index, 1);
+        else
+            throw new Error("This entity does not exist");
+    }
 
     public init(callback = () => {}) {
         window.requestAnimationFrame(() => this._mainLoop(callback))
     }
 
-    // public 
-
     private _mainLoop(callback: () => void) {
-    
-        
-            // //add engine components functionality here...
-            
-            // this._physicsEngine.updatePosition(this._entities.map(entity => entity.hasComponent(Colidable)));
-            // this._renderEngine.render(this._entities.map(entity => entity.hasComponent(Renderable)));
+            // this._physicsEngine.updatePosition(this._entities.filter(entity => entity.hasComponent(Colidable)));
+            // this._renderEngine.render(this._entities.filter(entity => entity.hasComponent(Renderable)));
             this._readInput();
 
             callback();
     }
 
     private _readInput(): void {
+
         this._prevCursorPosition = this._cursorPosition;
         this._cursorPosition = this._controller.getCursorPosition();
+
     }
 }
