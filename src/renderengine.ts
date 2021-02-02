@@ -1,10 +1,11 @@
 import Renderable from "./renderable";
+import { Entity } from "./entity"
 
 export default class RenderEngine {
     public ctx;
 
     constructor(public readonly canvas: HTMLCanvasElement) {
-        this.ctx = this.canvas.getContext('2d');
+        this.ctx = this.canvas.getContext('2d')!;
     }
 
     public render(entitiesArray: Array<Entity>): void {
