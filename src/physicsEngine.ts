@@ -1,7 +1,7 @@
 import { Colidable } from "./colidable"; 
 import { Entity } from "./entity";
 
-export default class PhysicsEngine {
+export class PhysicsEngine {
 
     // private ctx;
     // private width;
