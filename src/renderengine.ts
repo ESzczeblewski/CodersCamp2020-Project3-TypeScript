@@ -1,7 +1,7 @@
-import Renderable from "./renderable";
+import { Renderable } from "./renderable";
 import { Entity } from "./entity"
 
-export default class RenderEngine {
+export class RenderEngine {
 
     constructor(private _canvas: HTMLCanvasElement, private _ctx: CanvasRenderingContext2D) {
     }

@@ -1,7 +1,7 @@
 import { Component } from "./component";
 import { Point } from "./iinputdevice";
 
-export default class Renderable extends Component {
+export class Renderable extends Component {
 
     constructor(public position: Point, public color: string = "#000", public drawSelf = (ctx: any) => { // TODO: change any
 
