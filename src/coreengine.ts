@@ -1,5 +1,9 @@
 import { Point, IInputDevice} from "./inputdevice.h"
 import { Entity } from "./entity"
+import { RenderEngine } from "./renderengine"
+import { PhysicsEngine } from "./physicsengine"
+import { Renderable } from "./renderable"
+import { Colidable } from "./colidable"
 
 export class CoreEngine {
 
@@ -7,23 +11,27 @@ export class CoreEngine {
     private _prevCursorPosition: Point = {x: 0, y: 0};
     private _entities: Array<Entity> =[];
     private _ctx: CanvasRenderingContext2D | null;
-    // private _renderEngine;
+    private _renderEngine;
     // private _uiEngine;
-    // private _physicsEngine = new PhysicsEngine();
+    private _physicsEngine = new PhysicsEngine();
     // private _audioEngine: AudioEngine = new AudioEngine();
 
     constructor(private _canvas: HTMLCanvasElement, private _controller: IInputDevice) { 
         this._ctx = this._canvas.getContext("2d");
-        //this._renderEngine = new RenderEngine(this._canvas, this._ctx);
+        this._renderEngine = new RenderEngine(this._canvas, this._ctx);
         //this._uiEngine = new UIEngine(this._canvas);
     }
 
     public get cursorPosition() {
         return this._cursorPosition;
     }
-
+    
     public get previousCursorPosition() {
         return this._prevCursorPosition;
+    }
+    
+    public get entities() {
+        return this._entities;
     }
 
     public addEntity(entity: Entity): Entity {
@@ -33,7 +41,7 @@ export class CoreEngine {
 
     public removeEntity(entity: Entity) {
         const index = this._entities.indexOf(entity);
-        if(index)
+        if(index > -1)
             this._entities.splice(index, 1);
         else
             throw new Error("This entity does not exist");
@@ -44,8 +52,8 @@ export class CoreEngine {
     }
 
     private _mainLoop(callback: () => void) {
-            // this._physicsEngine.updatePosition(this._entities.filter(entity => entity.hasComponent(Colidable)));
-            // this._renderEngine.render(this._entities.filter(entity => entity.hasComponent(Renderable)));
+            this._physicsEngine.updatePosition(this._entities.filter(entity => entity.hasComponent(Colidable)));
+            this._renderEngine.render(this._entities.filter(entity => entity.hasComponent(Renderable)));
             this._readInput();
 
             callback();

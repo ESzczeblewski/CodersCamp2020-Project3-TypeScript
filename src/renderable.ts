@@ -1,5 +1,5 @@
 import { Component } from "./component";
-import { Point } from "./iinputdevice";
+import { Point } from "./inputdevice.h";
 
 export class Renderable extends Component {
 
