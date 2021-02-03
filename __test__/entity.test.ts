@@ -1,5 +1,5 @@
-import { Component } from "../src/component";
-import { Entity } from "../src/entity";
+import Component from "../src/Engine/Component";
+import Entity from "../src/Engine/Entity";
 
 class E1 extends Entity {}
 class E2 extends Entity {}

@@ -1,14 +1,15 @@
-import { Point, IInputDevice} from "./inputdevice.h"
-import { Entity } from "./entity"
-import { RenderEngine } from "./renderengine"
-import { PhysicsEngine } from "./physicsengine"
-import { Renderable } from "./renderable"
-import { Colidable } from "./colidable"
+import Entity from "./Entity"
+import RenderEngine from "./RenderEngine"
+import PhysicsEngine from "./PhysicsEngine"
+import Renderable from "./Renderable"
+import Colidable from "./Colidable"
+import { IPointerDevice } from "./inputs.h"
+import { Vector } from "./vector.h"
 
-export class CoreEngine {
+export default class CoreEngine {
 
-    private _cursorPosition: Point = {x: 0, y: 0};
-    private _prevCursorPosition: Point = {x: 0, y: 0};
+    private _cursorPosition: Vector = {x: 0, y: 0};
+    private _prevCursorPosition: Vector = {x: 0, y: 0};
     private _entities: Array<Entity> =[];
     private _ctx: CanvasRenderingContext2D | null;
     private _renderEngine;
@@ -16,7 +17,7 @@ export class CoreEngine {
     private _physicsEngine = new PhysicsEngine();
     // private _audioEngine: AudioEngine = new AudioEngine();
 
-    constructor(private _canvas: HTMLCanvasElement, private _controller: IInputDevice) { 
+    constructor(private _canvas: HTMLCanvasElement, private _controller: IPointerDevice) { 
         this._ctx = this._canvas.getContext("2d");
         this._renderEngine = new RenderEngine(this._canvas, this._ctx);
         //this._uiEngine = new UIEngine(this._canvas);

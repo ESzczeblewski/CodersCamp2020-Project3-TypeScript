@@ -1,6 +1,6 @@
-import { Colidable } from "../src/colidable"; 
-import { Entity } from "../src/entity";
-import { PhysicsEngine } from "../src/physicsengine";
+import PhysicsEngine from "../src/Engine/PhysicsEngine";
+import Colidable from "../src/Engine/Colidable"; 
+import Entity from "../src/Engine/Entity";
 
 class E extends Entity {};
 

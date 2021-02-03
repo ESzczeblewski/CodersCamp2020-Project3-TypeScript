@@ -1,8 +1,8 @@
-import { Component } from "./component"
+import Component from "./Component"
 
 type constr<T> = { new(...args: Array<any>): T } //should be unknown, but then error xd
 
-export abstract class Entity {
+export default abstract class Entity {
     private static idPool = 0;
     
     public readonly id: number;
@@ -33,7 +33,7 @@ export abstract class Entity {
 
     public removeComponent<C extends Component>(constr: constr<C>): void {
         let toRemove: Component | undefined;    //TODO: check if better union available
-        let index: number | undefined;
+        let index = -1;
 
         for (const component of this._components) {
             if (component instanceof constr) {

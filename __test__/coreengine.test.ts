@@ -2,9 +2,10 @@
  * @jest-environment jsdom
  */
 
-import { CoreEngine } from "../src/coreengine";
-import { Entity } from "../src/entity";
-import { Point, IInputDevice } from "../src/inputdevice.h";
+import CoreEngine from "../src/Engine/CoreEngine"
+import Entity from "../src/Engine/Entity";
+import { Vector } from "../src/Engine/vector.h";
+import { IPointerDevice } from "../src/Engine/inputs.h"
 
 describe("CoreEngine", () => {
     
@@ -16,8 +17,8 @@ describe("CoreEngine", () => {
     const canvas = document.getElementById("canvas") as HTMLCanvasElement;
     
     
-    class mockMouse implements IInputDevice {
-        getCursorPosition(): Point {
+    class mockMouse implements IPointerDevice {
+        getCursorPosition(): Vector {
             return {x: 1, y: 1};
         }
     }

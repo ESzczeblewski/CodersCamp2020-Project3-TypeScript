@@ -1,7 +1,7 @@
-import { Colidable } from "./colidable"; 
-import { Entity } from "./entity";
+import Colidable from "./Colidable"; 
+import Entity from "./Entity";
 
-export class PhysicsEngine {
+export default class PhysicsEngine {
 
     // private ctx;
     // private width;
