@@ -1,5 +1,5 @@
-import Renderable from "./Renderable";
-import Entity from "./Entity"
+import Renderable from "../Components/Renderable";
+import Entity from "../Entity/Entity"
 
 export default class RenderEngine {
 

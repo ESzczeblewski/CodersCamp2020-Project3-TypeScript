@@ -1,3 +1,3 @@
-import { Vector } from "./vector.h"
+import { Vector } from "./Utils/vector.h"
 
 export { Vector }

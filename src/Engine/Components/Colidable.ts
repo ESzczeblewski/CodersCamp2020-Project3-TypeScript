@@ -1,5 +1,5 @@
 import Component from './Component';
-import { Vector } from './vector.h';
+import { Vector } from '../Utils/vector.h';
 
 export default class Colidable extends Component {
 

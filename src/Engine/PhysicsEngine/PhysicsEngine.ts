@@ -1,5 +1,5 @@
-import Colidable from "./Colidable"; 
-import Entity from "./Entity";
+import Colidable from "../Components/Colidable"; 
+import Entity from "../Entity/Entity";
 
 export default class PhysicsEngine {
 

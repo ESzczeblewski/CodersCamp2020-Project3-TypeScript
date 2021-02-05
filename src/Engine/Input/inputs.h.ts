@@ -1,4 +1,4 @@
-import { Vector } from "./vector.h"
+import { Vector } from "../Utils/vector.h"
 
 export interface IPointerDevice {
     getCursorPosition(): Vector

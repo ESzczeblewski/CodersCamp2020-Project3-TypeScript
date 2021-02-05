@@ -2,10 +2,10 @@
  * @jest-environment jsdom
  */
 
-import CoreEngine from "../src/Engine/CoreEngine"
-import Entity from "../src/Engine/Entity";
-import { Vector } from "../src/Engine/vector.h";
-import { IPointerDevice } from "../src/Engine/inputs.h"
+import CoreEngine from "../src/Engine/CoreEngine/CoreEngine"
+import Entity from "../src/Engine/Entity/Entity";
+import { Vector } from "../src/Engine/Utils/vector.h";
+import { IPointerDevice } from "../src/Engine/Input/inputs.h"
 
 describe("CoreEngine", () => {
     

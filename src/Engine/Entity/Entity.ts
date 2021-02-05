@@ -1,4 +1,4 @@
-import Component from "./Component"
+import Component from "../Components/Component"
 
 type constr<T> = { new(...args: Array<any>): T } //should be unknown, but then error xd
 

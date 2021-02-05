@@ -1,10 +1,10 @@
-import Entity from "./Entity"
-import RenderEngine from "./RenderEngine"
-import PhysicsEngine from "./PhysicsEngine"
-import Renderable from "./Renderable"
-import Colidable from "./Colidable"
-import { IPointerDevice } from "./inputs.h"
-import { Vector } from "./vector.h"
+import Entity from "../Entity/Entity"
+import RenderEngine from "../RenderEngine/RenderEngine"
+import PhysicsEngine from "../PhysicsEngine/PhysicsEngine"
+import Renderable from "../Components/Renderable"
+import Colidable from "../Components/Colidable"
+import { IPointerDevice } from "../Input/inputs.h"
+import { Vector } from "../Utils/vector.h"
 
 export default class CoreEngine {
 
