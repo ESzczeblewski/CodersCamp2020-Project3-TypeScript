@@ -17,15 +17,20 @@ export default class RenderEngine {
             try {
                 const component = entity.getComponent(Renderable);
                 const component1 = entity.getComponent(Colidable);
-                switch(component.shape) {
-                    case "SQUARE":
-                        this._drawSquare(component1.position.x, component1.position.y, component.size.width, component.size.height);
-                        break;
-                    case "CIRCLE":
+
+                if (component.texture) {
+                    this._objectTexture(component1.position.x, component1.position.y, component.size.width, component.texture)    
+                } else {
+                    switch(component.shape) {
+                        case "SQUARE":
+                            this._drawSquare(component1.position.x, component1.position.y, component.size.width, component.size.height);
+                            break;
+                        case "CIRCLE":
+                            this._drawCircle(component1.position.x, component1.position.y, component.size.width);
+                            break;
+                        default: 
                         this._drawCircle(component1.position.x, component1.position.y, component.size.width);
-                        break;
-                    default: 
-                    this._drawCircle(component1.position.x, component1.position.y, component.size.width);
+                    }
                 }
             } catch (err) {
                 console.error(`Could not find component of class Renderable in entity: ${entity.constructor.name}`);
@@ -45,8 +50,17 @@ export default class RenderEngine {
     private _drawCircle(x: number, y: number, width: number) {
         const circle = new Path2D();
         circle.arc(x, y, width/2, 0, 2 * Math.PI);
-        this._ctx!.fillStyle = "green"; //texture
+       // this._ctx!.fillStyle = "green";
         this._ctx!.fill(circle);        
     }
+
+    private _objectTexture(x: number, y: number, width: number, texture: string) {
+        const img = new Image();
+        img.addEventListener('load', function(e) {
+            this._ctx!.drawImage(this, x-width/2, y-width/2, width, width);
+            this._ctx!.fill();
+        }, true);
+        img.src = texture;
+      }
 
 }
